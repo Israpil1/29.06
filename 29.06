@@ -1,0 +1,93 @@
+using System;
+
+class Device
+{
+    public string Name { get; set; }
+
+    public Device(string name)
+    {
+        Name = name;
+    }
+
+    public virtual void Sound()
+    {
+        Console.WriteLine($"Устройство {Name} издает звук.");
+    }
+
+    public void Show()
+    {
+        Console.WriteLine($"Название устройства: {Name}");
+    }
+
+    public virtual void Desc()
+    {
+        Console.WriteLine($"Описание устройства {Name}.");
+    }
+}
+
+class Kettle : Device
+{
+    public Kettle(string name) : base(name) { }
+
+    public override void Sound()
+    {
+        Console.WriteLine("Чайник свистит.");
+    }
+}
+
+class Microwave : Device
+{
+    public Microwave(string name) : base(name) { }
+
+    public override void Sound()
+    {
+        Console.WriteLine("Микроволновка жужжит.");
+    }
+}
+
+class Car : Device
+{
+    public Car(string name) : base(name) { }
+
+    public override void Sound()
+    {
+        Console.WriteLine("Автомобиль гудит.");
+    }
+}
+
+class Steamship : Device
+{
+    public Steamship(string name) : base(name) { }
+
+    public override void Sound()
+    {
+        Console.WriteLine("Пароход трубит.");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Kettle kettle = new Kettle("Электрический чайник");
+        Microwave microwave = new Microwave("СВЧ-печь");
+        Car car = new Car("Легковой автомобиль");
+        Steamship steamship = new Steamship("Пассажирский пароход");
+
+        kettle.Show();
+        kettle.Sound();
+        kettle.Desc();
+
+        microwave.Show();
+        microwave.Sound();
+        microwave.Desc();
+
+        car.Show();
+        car.Sound();
+        car.Desc();
+
+        steamship.Show();
+        steamship.Sound();
+        steamship.Desc();
+    }
+}
